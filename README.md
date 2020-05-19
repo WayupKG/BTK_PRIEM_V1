@@ -4,7 +4,7 @@
 
 ### Снимки проекта
   Главная Страница:
-  ![alt text](https://github.com/sswapnil2/django-quiz-app/blob/master/screenshots/login.png "Главная Страница")
+  ![alt text](https://github.com/WayupKG/Online_Reception/blob/master/static/Snaps%20of%20project/scren.png?raw=true "Главная Страница")
   <br>
   
 # Инструкция 
