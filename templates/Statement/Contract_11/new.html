@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+    <section class="learning_part">
+        <div class="container">
+            <div class="row align-items-sm-center align-items-lg-stretch">
+                <div style="width: 50%; margin: 0 auto 30px auto">
+                    <h2>Новые заявлении на Контракт 11-класс</h2>
+                </div>
+                <table class="table-ss">
+                    <tr>
+                        <th class="th-FIO">Ф.И.О</th>
+                        <th class="th-sp">Специальность</th>
+                        <th class="th-created">Создан</th>
+                        <th class="th-status">Статус</th>
+                    </tr>
+                {% for statement in statements %}
+                    <tr>
+                        <td class="td-FIO"><a href="{% url 'statement_single_Admin' slug=statement.slug %}" style="font-size: 16px">
+                            {{ statement.last_name }} {{ statement.first_name }}</a></td>
+                        <td class="td-sp">{{ statement.specialty }}</td>
+                        <td class="td-created">{{ statement.created }}</td>
+                        <td class="th-status">{{ statement.status }}</td>
+                    </tr>
+                {% endfor %}
+                </table>
+            </div>
+        </div>
+    </section>
+
+
+{% endblock %}

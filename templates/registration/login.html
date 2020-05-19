@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+
+    <div class="container cntr-reg">
+
+        {% if form.errors %}
+            <p>Ваше имя пользователя и пароль не совпадают. Пожалуйста, попробуйте еще раз.</p>
+        {% endif %}
+
+        {% if next %}
+            {% if user.is_authenticated %}
+                <p>Ваша учетная запись не имеет доступа к этой странице.
+                    Чтобы продолжить, пожалуйста,
+                    войдите в систему с учетной записью, которая имеет доступ.</p>
+            {% else %}
+                <p>Пожалуйста, войдите, чтобы увидеть эту страницу.</p>
+            {% endif %}
+        {% endif %}
+
+        <form method="post" action="{% url 'login' %}">
+            {% csrf_token %}
+            <table class="table_reg">
+            <tr>
+              <td>
+                  <span style="font-size: 18px">{{ form.username.label_tag }}</span><br>
+                  {{ form.username }}
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                  <span style="font-size: 18px">{{ form.password.label_tag }}</span><br>
+                  {{ form.password }}
+              </td>
+            </tr>
+            </table>
+
+            <input type="submit" value="Войти" class="genric-btn primary btn-reg"/>
+            <input type="hidden" name="next" value="{{ next }}" />
+            <a href="" class="genric-btn primary btn-reg">Регистрация</a>
+            <p style="margin-top: 20px"><a href="{% url 'password_reset' %}">Забыль пароль?</a></p>
+            </form>
+
+            {# Assumes you setup the password_reset view in your URLconf #}
+
+    </div>
+
+
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <!-- banner part start-->
+    <section class="banner_part">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-xl-6">
+                    <div class="banner_text">
+                        <div class="banner_text_iner">
+                            <h5>Не профессия выбирает человека, а человек профессию.</h5>
+                            <h1>Бишкекский технический колледж</h1>
+                            <a href="{% url 'specialty' %}" class="btn_1">Специальности</a>
+                            <a href="{% url 'the_choice' %}" class="btn_2">Оставить заявку</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--============ banner part start ===========-->
+
+
+    <!--============ feature_part start ===========-->
+        {% include 'Duplicate/feature_part.html' %}
+    <!--============ feature_part start ===========-->
+
+
+    <!--============ About_us_part start ===========-->
+        {% include 'Duplicate/About_us_part.html' %}
+    <!--============ About_us_part end ===========-->
+
+
+    <!--============ member_counter counter start ===========-->
+        {% include 'Duplicate/member_counter.html' %}
+    <!--============ member_counter counter end ===========-->
+
+
+    <!--============ review_part start ===========-->
+        {% include 'Duplicate/review_part.html' %}
+    <!--============ review_part end ===========-->
+
+
+    <!--============ learning_part start ===========-->
+        {% include 'Duplicate/learning_part.html' %}
+    <!--============ learning_part end ===========-->
+
+
+{% endblock content %}

@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+    <!-- breadcrumb start-->
+    <section class="breadcrumb breadcrumb_bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb_iner text-center">
+                        <div class="breadcrumb_iner_item">
+                            <h2>Специальности</h2>
+                            <p>Главная<span>/</span>Специальности</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- breadcrumb start-->
+
+    <!--::review_part start::-->
+    <section class="special_cource padding_top">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-5">
+                    <div class="section_tittle text-center">
+                        <p>Все специальности</p>
+                        <h2>Специальности</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+
+                {% for course in courses %}
+                    <div class="col-sm-6 col-lg-4">
+                        <div class="single_special_cource">
+                            <img src="{{ course.img.url }}" class="special_img" alt="">
+                            <div class="special_cource_text">
+                                <a href="{% url 'specialty' slug=course.slug %}" class="btn_4">Специальность</a>
+                                <h4>0.00</h4>
+                                <a href="{% url 'specialty' slug=course.slug %}">
+                                    <h3>{{ course.title }}</h3>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </section>
+    <!--::blog_part end::-->
+
+
+{% endblock %}

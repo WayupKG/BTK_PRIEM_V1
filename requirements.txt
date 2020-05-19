@@ -1,0 +1,9 @@
+Django==2.2.8
+django-cleanup==4.0.0
+django-hashedfilenamestorage==2.4.1
+Pillow==7.1.1
+psycopg2-binary==2.8.5
+pytz==2019.3
+six==1.14.0
+sqlparse==0.3.1
+transliterate==1.10.2

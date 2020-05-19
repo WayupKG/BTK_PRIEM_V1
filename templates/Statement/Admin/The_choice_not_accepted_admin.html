@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<section class="feature_part">
+    <div class="container">
+        <div class="row">
+            <div style=" width: 100%; margin: 50px 0; text-align: center">
+                <hr>
+                    <h2><a href="{% url 'not_accepted_budget_9' %}">Бюджет 9-класс</a></h2>
+                <hr>
+                    <h2><a href="{% url 'not_accepted_budget_11' %}">Бюджет 11-класс</a></h2>
+                <hr>
+                    <h2><a href="{% url 'not_accepted_contract_9' %}">Контракт 9-класс</a></h2>
+                <hr>
+                    <h2><a href="{% url 'not_accepted_contract_11' %}">Контракт 11-класс Очный</a></h2>
+                <hr>
+                    <h2><a href="{% url 'not_accepted_contract_11' %}">Контракт 11-класс Заочный</a></h2>
+                <hr>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+{% endblock %}

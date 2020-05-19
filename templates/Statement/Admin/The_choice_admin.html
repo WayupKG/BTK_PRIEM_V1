@@ -1,0 +1,206 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+   <!-- breadcrumb start-->
+    <section class="breadcrumb breadcrumb_bg noprint">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb_iner text-center">
+                        <div class="breadcrumb_iner_item">
+                            <h2>Выбор</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- breadcrumb start-->
+
+<section class="feature_part">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4 col-xl-6">
+                <div class="the_choice_page">
+                    <div class="single_feature_part">
+                        <h2>Принятые на Бюджет 9-класс </h2><br>
+                            <p>
+                            <hr>
+                                <h4>
+                                    <a href="{% url 'statement_single_accepted' title='tm-budget-9' %}">
+                                        Технология машиностроения
+                                    </a>
+                                </h4>
+                            <hr>
+                                <h4>
+                                    <a href="{% url 'statement_single_accepted' title='tes-budget-9' %}">
+                                        Тепловые электрические станции
+                                    </a>
+                                </h4>
+                            <hr>
+                                <h4>
+                                    <a href="{% url 'statement_single_accepted' title='est-budget-9' %}">
+                                        Электрические станции, сети и системы
+                                    </a>
+                                </h4>
+                            <hr>
+                                <h4>
+                                    <a href="{% url 'statement_single_accepted' title='es-budget-9' %}">
+                                        Электроснабжение (по отраслям)
+                                    </a>
+                                </h4>
+                            </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4 col-xl-6">
+                <div class="the_choice_page">
+                    <div class="single_feature_part">
+                        <h2>Принятые на Бюджет 11-класс</h2>
+                            <p>
+                                <hr>
+                                    <h4><a href="{% url 'statement_single_accepted' title='asoi-budget-11' %}">
+                                        Автоматизированные системы обработки информации и управления
+                                    </a></h4>
+                                <hr>
+                            </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4 col-xl-6">
+                <div class="the_choice_page">
+                    <div class="single_feature_part">
+                        <h2>Принятые на Контракт 9-класс </h2><br>
+                            <p>
+                            <hr>
+                                <h4><a href="{% url 'statement_single_accepted' title='tm-contract-9' %}">
+                                    Технология машиностроения
+                                </a></h4>
+                            <hr>
+                                <h4><a href="{% url 'statement_single_accepted' title='sp-contract-9' %}">
+                                    Сварочное производство
+                                </a></h4>
+                            <hr>
+                                <h4><a href="{% url 'statement_single_accepted' title='po-contract-9' %}">
+                                    Программное обеспечение вычислительной техники и автоматизированных систем
+                                </a></h4>
+                            <hr>
+                                <h4><a href="{% url 'statement_single_accepted' title='to-contract-9' %}">
+                                    Техническое обслуживание средств вычислительной техники и компьютерных сетей
+                                </a></h4>
+                            <hr>
+                                <h4><a href="{% url 'statement_single_accepted' title='asoi-contract-9' %}">
+                                    Автоматизированные системы обработки информации и управления
+                                </a></h4>
+                            <hr>
+                                <h4><a href="{% url 'statement_single_accepted' title='tes-contract-9' %}">
+                                    Тепловые электрические станции
+                                </a></h4>
+                            <hr>
+                                <h4><a href="{% url 'statement_single_accepted' title='est-contract-9' %}">
+                                    Электрические станции, сети и системы
+                                </a></h4>
+                            <hr>
+                                <h4><a href="{% url 'statement_single_accepted' title='es-contract-9' %}">
+                                    Электроснабжение (по отраслям)
+                                </a></h4>
+                            <hr>
+                                <h4><a href="{% url 'statement_single_accepted' title='gr-contract-9' %}">
+                                    Открытые горные работы
+                                </a></h4>
+                            <hr>
+                                <h4><a href="{% url 'statement_single_accepted' title='ebu-contract-9' %}">
+                                    Экономика и бухгалтерский учет (по отраслям)
+                                </a></h4>
+                            <hr>
+                            </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4 col-xl-6">
+                <div class="the_choice_page">
+                    <div class="single_feature_part">
+                        <h2>Принятые на Контракт 11-класс </h2><br>
+                        <p>
+                            <hr>
+                                <h4><a href="{% url 'statement_single_accepted' title='tm-contract-11' %}">
+                                    Технология машиностроения
+                                </a></h4>
+                            <hr>
+                                <h4><a href="{% url 'statement_single_accepted' title='sp-contract-11' %}">
+                                    Сварочное производство
+                                </a></h4>
+                            <hr>
+                                <h4><a href="{% url 'statement_single_accepted' title='po-contract-11' %}">
+                                    Программное обеспечение вычислительной техники и автоматизированных систем
+                                </a></h4>
+                            <hr>
+                                <h4><a href="{% url 'statement_single_accepted' title='to-contract-11' %}">
+                                    Техническое обслуживание средств вычислительной техники и компьютерных сетей
+                                </a></h4>
+                            <hr>
+                                <h4><a href="{% url 'statement_single_accepted' title='asoi-contract-11' %}">
+                                    Автоматизированные системы обработки информации и управления
+                                </a></h4>
+                            <hr>
+                                <h4><a href="{% url 'statement_single_accepted' title='tes-contract-11' %}">
+                                    Тепловые электрические станции
+                                </a></h4>
+                            <hr>
+                                <h4><a href="{% url 'statement_single_accepted' title='est-contract-11' %}">
+                                    Электрические станции, сети и системы
+                                </a></h4>
+                            <hr>
+                                <h4><a href="{% url 'statement_single_accepted' title='es-contract-11' %}">
+                                    Электроснабжение (по отраслям)
+                                </a></h4>
+                            <hr>
+                                <h4><a href="{% url 'statement_single_accepted' title='gr-contract-11' %}">
+                                    Открытые горные работы
+                                </a></h4>
+                            <hr>
+                                <h4><a href="{% url 'statement_single_accepted' title='ebu-contract-11' %}">
+                                    Экономика и бухгалтерский учет (по отраслям)
+                                </a></h4>
+                            <hr>
+                            </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4 col-xl-6">
+                <div class="the_choice_page">
+                    <div class="single_feature_part">
+                        <h2>Принятые на Контракт 11-класс Заочный</h2><br>
+                        <p>
+                            <hr>
+                                <h4><a href="{% url 'statement_single_accepted' title='tm-corres-11' %}">
+                                    Технология машиностроения
+                                </a></h4>
+                            <hr>
+                                <h4><a href="{% url 'statement_single_accepted' title='po-corres-11' %}">
+                                    Программное обеспечение вычислительной техники и автоматизированных систем
+                                </a></h4>
+                            <hr>
+                                <h4><a href="{% url 'statement_single_accepted' title='tes-corres-11' %}">
+                                    Тепловые электрические станции
+                                </a></h4>
+                            <hr>
+                                <h4><a href="{% url 'statement_single_accepted' title='est-corres-11' %}">
+                                    Электрические станции, сети и системы
+                                </a></h4>
+                            <hr>
+                                <h4><a href="{% url 'statement_single_accepted' title='es-corres-11' %}">
+                                    Электроснабжение (по отраслям)
+                                </a></h4>
+                            <hr>
+                            </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

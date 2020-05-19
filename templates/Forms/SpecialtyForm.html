@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+        <section class="special_cource padding_top">
+            <div class="container">
+                <div class="row justify-content-center SpecialtyTitle">
+                    <div class="section_tittle text-center">
+                        <h2>Добавить специальность</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <form enctype="multipart/form-data" action method="POST" class="SpecialtyForm" novalidate> {% csrf_token %}
+                        {{ form.title }}
+                        {{ form.body }}
+                        {{ form.img }}
+                        <input type="submit" class="genric-btn primary radius SpecialtySubmit" value="Добавить">
+                    </form>
+                </div>
+            </div>
+        </section>
+{% endblock %}

@@ -1,0 +1,86 @@
+body, html {
+    background-color: #f0ebf8;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+
+}
+
+.box-trd {
+    width: 50%;
+    padding: 32px 15px;
+    background-color: #fff;
+    border-radius: 10px;
+    margin: 25px auto;
+    font-size: 20px;
+    color: #562E70;
+    overflow: hidden;
+}
+
+.title {
+    text-align: center;
+}
+
+select {
+    width: 90%;
+}
+select option {
+    width: 90%;
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+    .box-trd {
+        width: 60%;
+    }
+    input[type=text], input[type=date], input[type=number], input[type=email] {
+        width: 90%;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .box-trd {
+        width: 70%;
+    }
+    input[type=text], input[type=date], input[type=number], input[type=email] {
+        width: 90%;
+    }
+}
+
+@media (max-width: 576px) {
+    .box-trd {
+        width: 80%;
+    }
+    input[type=text], input[type=date], input[type=number], input[type=email] {
+        width: 90%;
+    }
+}
+
+
+input[type=text], input[type=date], input[type=number], input[type=email] {
+    width: 90%;
+    font-size: 20px;
+    color: #562E70;
+    margin-bottom: 20px;
+    padding: 12px 20px;
+    border: none;
+    border-bottom: 2px solid #562E70;
+}
+
+input[type=text]:focus, input[type=password]:focus, input[type=number]:focus, input[type=email]:focus  {
+    outline: 0;
+    outline-offset: 0;
+}
+
+.sumbit_link {
+    cursor: pointer;
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: #4CD984;
+    padding: 8px 15px;
+    border-radius: 10px;
+    border: 3px solid #4CD984;
+    transition: background-color 0.5s;
+}

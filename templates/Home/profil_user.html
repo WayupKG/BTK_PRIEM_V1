@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<section class="learning_part">
+    <div class="container">
+        <div class="row align-items-sm-center align-items-lg-stretch">
+
+        {% if statement == 'Noo' %}
+        <div style="margin: 50px auto 0 auto; text-align: center">
+            <h3>Здравствуйте, <span>{{ user.last_name }} {{ user.first_name }}</span></h3>
+            <h4 style="margin: 20px 0">Это страница будет дуступна после отправки заявлении</h4>
+            <a href="{% url 'the_choice' %}" class="btn_2">Оставить заявку</a>
+
+        </div>
+        {% else %}
+            <div class="profil-grid">
+                <div class="profil_info_user">
+                    <div class="profil_img">
+                        <img src="{{ statement.image_student.url }}" alt="">
+                    </div>
+                    <hr>
+                        <h3>{{ user.last_name }} {{ user.first_name }}</h3>
+                    <hr>
+                </div>
+                <div class="profil_info_statement">
+                    <h3>
+                        {% if statement.status == 'В ожидании' %}
+                            Заявление был отправлен <span>и находится в рассмотрении</span>
+                        {% elif statement.status == 'Не принят' %}
+                            Заявление был отклонен
+                        {% elif statement.status == 'Принят' %}
+                            Заявление был принят
+                        {% endif %}
+
+                    </h3>
+                    <hr>
+                    <h4>Специальность: {{ statement.specialty }}</h4>
+                    <hr>
+                    <h4>Статус вашей заявлении: <span>{{ statement.status }}</span></h4>
+                    <hr>
+                    {% if statement.status == 'Принят' %}
+                        <div>
+                            <h4>Получен сертификат подтверждающий, что ...</h4>
+                            <hr>
+                            <a href="/{{ statement.image_certificate_priom }}" class="genric-btn primary" style="margin-bottom: 20px">Посмотреть Сертификат</a>
+                            <a href="/{{ statement.image_certificate_priom }}" class="genric-btn primary" download>Скачать Сертификат</a>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="comments noprint">
+                <h3 class="title-comments">Комментарии ({{ statement.review_statement.count }})</h3>
+                <div class="form-group noprint">
+                    <label for="exampleFormControlTextarea1">Комментарии</label>
+                    <form action="{% url 'review' %}" method="post">{% csrf_token %}
+                        <input type="hidden" name="statement_id" value="{{ statement.pk }}">
+                        <input type="hidden" name="user_id" value="{{ user.id }}">
+                            {{ form.text }}
+                        <input type="submit" class="genric-btn primary" style="margin-top: 25px">
+                    </form>
+                </div>
+                {% include 'Forms/comment.html' %}
+            </div>
+
+        {% endif %}
+        </div>
+    </div>
+</section>
+<style>
+
+</style>
+
+{% endblock %}

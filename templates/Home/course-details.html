@@ -1,0 +1,118 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+    <!-- breadcrumb start-->
+    <section class="breadcrumb breadcrumb_bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb_iner text-center">
+                        <div class="breadcrumb_iner_item">
+                            <h2>{{ course.title }}</h2>
+                            <p>Главная<span>/</span>{{ course.title }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- breadcrumb start-->
+
+    <!--================ Start Course Details Area =================-->
+    <section class="course_details_area section_padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 course_details_left">
+                    <div class="main_image">
+                        <img class="img-fluid" src="{{ course.img.url }}" alt="">
+                    </div>
+                    <div class="content_wrapper">
+                        <h4 class="title_top">{{ course.title }}</h4>
+                        <div class="content">
+                            {{ course.body|linebreaksbr }}
+                        </div>
+
+
+                        <h4 class="title">Другие специальности</h4>
+                        <div class="content">
+                            <ul class="course_list">
+
+                                {% for course in courses %}
+                                    <li class="justify-content-between align-items-center d-flex">
+                                        <p>{{ course.title }}</p>
+                                        <a class="btn_2 text-uppercase" href="{% url 'specialty' slug=course.slug %}">Подробно</a>
+                                    </li>
+                                {% endfor %}
+
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-4 right-contents">
+                    <div class="sidebar_top">
+                        <ul>
+                            <li>
+                                <a class="justify-content-between d-flex" href="#">
+                                    <p>Категория</p>
+                                    <span class="color">Специальности</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="justify-content-between d-flex" href="#">
+                                    <p>Контракт</p>
+                                    <span>30,000 сом</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="justify-content-between d-flex" href="#">
+                                    <p>В группе </p>
+                                    <span>30 ч.</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="justify-content-between d-flex" href="#">
+                                    <p>Формат обучение </p>
+                                    <span>дневное</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="justify-content-between d-flex" href="#">
+                                    <p>На базе 9-кл</p>
+                                    <span>2 года 10 месяцев</span>
+                                </a>
+                            </li>
+                                      <li>
+                                <a class="justify-content-between d-flex" href="#">
+                                    <p>На базе 11-кл</p>
+                                    <span>1 года 10 месяцев</span>
+                                </a>
+                            </li>
+
+                        </ul>
+                        <a href="#" class="btn_1 d-block">Оставить заявку</a>
+                    </div>
+                    {% if user.is_authenticated %}
+                        <h4 class="title">Редактировать</h4>
+                        <div class="content">
+                            <div class="review-top row pt-40">
+                                <form action method="post">
+                                    {% csrf_token %}
+                                    <input class="btn_1 d-block remove" type="submit" value="Удалить" name="btn_remove">
+                                </form>
+
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--================ End Course Details Area =================-->
+
+{% endblock %}

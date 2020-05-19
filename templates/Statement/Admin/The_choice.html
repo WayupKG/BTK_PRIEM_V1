@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<section class="feature_part">
+    <div class="container">
+        <div class="row row_the_choice">
+            <div class="col-sm-3 col-xl-6">
+                <div class="the_choice_page">
+                    <div class="single_feature_part">
+                        <form action method="post">{% csrf_token %}
+                        <h2>На базе 9-класса</h2><br>
+                            <p>
+                                <label class="container-radio">Бюджет
+                                  <input type="radio" checked="checked" name="radio-9-forma" class="in-radio" value="Бюджет">
+                                  <span class="checkmark-radio"></span>
+                                </label>
+                                <label class="container-radio">Контракт
+                                  <input type="radio" name="radio-9-forma" class="in-radio" value="Контракт">
+                                  <span class="checkmark-radio"></span>
+                                </label><br>
+                                <button type="submit" name="BTN" value="9-kl" class="btn_1">Оставить заявку</button>
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3 col-xl-6">
+                <div class="the_choice_page">
+                    <div class="single_feature_part">
+                        <form action method="post">{% csrf_token %}
+                        <h2>На базе 11-класса</h2>
+                            <p>
+                            {% if errors %}
+                                <p style="color: red">{{ errors.error }}</p>
+                            {% endif %}
+                                <label class="container-radio">Бюджет
+                                  <input type="radio" checked="checked" name="radio-11-budget-forma" class="in-radio" value="Бюджет">
+                                  <span class="checkmark-radio"></span>
+                                </label>
+                                <label class="container-radio">Контракт
+                                  <input type="radio" name="radio-11-budget-forma" class="in-radio" value="Контракт">
+                                  <span class="checkmark-radio"></span>
+                                </label><br>
+                                <h4>Форма обучение</h4>
+                                <label class="container-radio">Очный
+                                  <input type="radio" checked="checked" name="radio-forma" class="in-radio" value="Очный">
+                                  <span class="checkmark-radio"></span>
+                                </label>
+                                <label class="container-radio">Заочный
+                                  <input type="radio" name="radio-forma" class="in-radio" value="Заочный">
+                                  <span class="checkmark-radio"></span>
+                                </label>
+                            </p><br>
+                                <button type="submit" name="BTN" value="11-kl" class="btn_1">Оставить заявку</button>
+                            </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,152 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+<section class="feature_part">
+    <div class="container">
+        <div class="row">
+            <div class="main-statement">
+            {% if user.username == 'Adikgk' %}
+                <a href="{% url 'The_Choice_Accepted_Admin' %}" class="noprint">Новые заявлении</a>  /
+                <a href="{% url 'The_Choice_Not_Accepted_Admin' %}" class="noprint">Не принятые заявлении</a>
+                <input type="button" value="Печать" onclick="print()" class='noprint'>
+
+            <div style="text-align: center">
+                <h2>Заявление <span class="noprint">{{ statement.status }}</span> </h2>
+
+            </div>
+                <div class="main-statement-grid">
+                    <div class="statement-img-info">
+                        <div class="statement-img">
+                            <img src="{{ statement.image_student.url }}" alt="">
+                        </div>
+                        <div class="statement-info">
+                            <hr>
+                                <h4><span class="span-statement"> Ф.И.О:</span>  {{ statement.last_name }} {{ statement.first_name }}
+                                    {% if statement.patronymic %} {{ statement.patronymic }} {% endif %}
+                                </h4>
+                            <hr>
+                                <h4><span class="span-statement">Дата рождения:</span> {{ statement.date_of_birth }}</h4>
+                            <hr>
+                                <h4><span class="span-statement">Пол:</span> {{ statement.floor }}</h4>
+                            <hr>
+                                <h4><span class="span-statement">Национальность:</span> {{ statement.nationality }}</h4>
+                            <hr>
+                                <h4><span class="span-statement"> Отец:</span>
+                                    {{ statement.father }}
+                                </h4>
+                            <hr>
+                                <h4><span class="span-statement"> Номер телефона:</span>
+                                    {{ statement.father_phone }}
+                                </h4>
+                            <hr>
+                                <h4><span class="span-statement"> Мать:</span>
+                                    {{ statement.mother }}
+                                </h4>
+                            <hr>
+                                <h4><span class="span-statement"> Номер телефона:</span>
+                                    {{ statement.father_phone }}
+                                </h4>
+                            <hr class="noprint">
+                        </div>
+                    </div>
+                    <div class="statement_info_main">
+                        <h4><span class="span-statement">Специальност:</span> {{ statement.specialty }}</h4>
+                        <hr>
+                        <h4><span class="span-statement">Наименование учебного заведения:</span> {{ statement.graduated }}</h4>
+                        <hr>
+                        <h4><span class="span-statement">Город, Район:</span> {{ statement.near }}</h4>
+                        <hr>
+                        <h4><span class="span-statement">и получил(а):</span> {{ statement.certificate_status }}</h4>
+                        <hr>
+                        {% if statement.certificate_status == 'Свидетельство' %}
+                            <h4><span class="span-statement">Серия и номер (свидетельство): </span> {{ statement.certificate_number }}</h4>
+                            <hr>
+                            <h4><span class="span-statement">Год выдачи (свидетельство):</span> {{ statement.certificate_date }}</h4>
+                            <hr>
+                        {% else %}
+                            <h4><span class="span-statement">Серия и номер (аттестат или диплом): </span> {{ statement.certificate_number }}</h4>
+                            <hr>
+                            <h4><span class="span-statement">Год выдачи (аттестат или диплом):</span> {{ statement.certificate_date }}</h4>
+                            <hr>
+                        {% endif %}
+                        <h4><span class="span-statement">Номер паспорта или свидетельство:</span> {{ statement.passport_or_certificate }}</h4>
+                        <hr>
+
+                        <h4><span class="span-statement">Форма обучение:</span> {{ statement.form_training }}</h4>
+                        <hr>
+                        <h4><span class="span-statement">Бюджет контракт:</span> {{ statement.budget_contract }}</h4>
+                        <hr>
+                        <h4><span class="span-statement">Место жителство студента:</span> {{ statement.place_of_residence }}</h4>
+                        <hr>
+                        <h4><span class="span-statement">Номер телефона студента:</span> {{ statement.phone_student }}</h4>
+                        <hr class="noprint">
+                    </div>
+
+                </div>
+                <hr>
+                    <h4><span class="span-statement ">Заявление был отправлен:</span> {{ statement.created }}</h4>
+                <hr>
+
+            <div style="margin-bottom: 20px" >
+                    {% if statement.status == "В ожидании" %}
+                            <h4 class="noprint"><span class="span-statement">Заявление был обновлено:</span> {{ statement.updated }}</h4>
+                        <hr class="noprint">
+                        <form method="post" class="noprint">{% csrf_token %}
+                            <input type="submit" name="btn-accept" class="btn_1" value="Принять заявление">
+                            <input type="submit" name="btn-accept" class="btn_1" value="Не принят">
+                        </form>
+                    {% elif statement.status == "Не принят" %}
+                            <h4><span class="span-statement">Заявление был отклонен:</span> {{ statement.created_the_accepted }}</h4>
+                        <hr>
+                            <h4><span class="span-statement">Документ не принять:</span> {{ statement.responsible }}</h4>
+                        <hr>
+                        <form method="post" class="noprint">{% csrf_token %}
+                            <input type="submit" name="btn-accept" class="btn_1" value="Принять заявление">
+                        </form>
+                    {% elif statement.status == "Принят" %}
+                            <h4><span class="span-statement">Заявление был Принять:</span> {{ statement.created_the_accepted }}</h4>
+                        <hr>
+                            <h4><span class="span-statement">Документ принять:</span> {{ statement.responsible }}</h4>
+                        <hr>
+                        <form method="post" class="noprint">{% csrf_token %}
+                            <input type="submit" name="btn-accept" class="btn_1" value="Не принят">
+                        </form>
+                    {% endif %}
+                <hr>
+            <div class="comments noprint">
+                <h3 class="title-comments">Комментарии ({{ statement.review_statement.count }})</h3>
+                <div class="form-group noprint">
+                    <label for="exampleFormControlTextarea1">Комментарии</label>
+                    <form action="{% url 'review' %}" method="post">{% csrf_token %}
+                        <input type="hidden" name="statement_id" value="{{ statement.pk }}">
+                        <input type="hidden" name="user_id" value="None">
+                            {{ form.text }}
+                        <input type="submit" class="genric-btn primary" style="margin-top: 25px">
+                    </form>
+                </div>
+                {% include 'Forms/comment.html' %}
+            </div>
+            </div>
+            {% else %}
+                <div style="text-align: center">
+                    <h1>У вас нет доступа на эту страницу</h1>
+                </div>
+            {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+<style>
+
+    h1 {
+        font-family: Times New Roman;
+        color: #0b0b0b;
+    }
+    h4 {
+        font-size: 22px;
+        font-family: Times New Roman;
+    }
+</style>
+{% endblock %}
