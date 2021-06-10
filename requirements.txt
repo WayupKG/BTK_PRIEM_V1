@@ -1,4 +1,4 @@
-Django==2.2.8
+Django==2.2.24
 django-cleanup==4.0.0
 django-hashedfilenamestorage==2.4.1
 Pillow==7.1.1
